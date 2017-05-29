@@ -109,3 +109,5 @@
 
     (println "Starting server on port " port)
     (httpkit/run-server poetshelper-server {:port port})))
+
+(start-server 8008)
