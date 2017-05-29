@@ -3,7 +3,7 @@
   :url "none"
   :license {:name "none"
             :url "none"}
-  :min-lein-version "1.8.0"
+  :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/math.numeric-tower "0.0.4"]
                  [http-kit "2.2.0"]
