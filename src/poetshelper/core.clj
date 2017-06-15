@@ -110,5 +110,5 @@
     (println "Starting server on port " port)
     (httpkit/run-server poetshelper-server {:port port})))
 
-(defn -main
+(defn -main []
   (start-server 5000))
