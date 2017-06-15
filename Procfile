@@ -1,1 +1,1 @@
-(start-server 8008)
+web: bundle exec thin start -p $PORT
