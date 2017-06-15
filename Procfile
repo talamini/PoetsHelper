@@ -1,1 +1,1 @@
-web: -from-proc-file $PORT
+web: lein run -m poetshelper.core $PORT

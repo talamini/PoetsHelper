@@ -4,11 +4,13 @@
   :license {:name "none"
             :url "none"}
   :min-lein-version "2.0.0"
+  :plugins [[environ/environ.lein "0.3.1"]]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/math.numeric-tower "0.0.4"]
                  [http-kit "2.2.0"]
                  [aleph "0.3.2"]
-                 [ring "1.1.5"]]
+                 [ring "1.1.5"]
+                 [environ "1.0.0"]]
   :main ^:skip-aot poetshelper.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

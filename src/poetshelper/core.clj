@@ -1,6 +1,9 @@
 (ns poetshelper.core
   (:require [clojure.string :as str]
-            [org.httpkit.server :as httpkit]))
+            [org.httpkit.server :as httpkit]
+            [clojure.java.io :as io]
+            [environ.core :refer [env]]
+            ))
 
 (println "Slurping dict.txt")
 (def dict-vector
@@ -110,6 +113,5 @@
     (println "Starting server on port " port)
     (httpkit/run-server poetshelper-server {:port port})))
 
-(defn -from-proc-file [$ [port]]
-  (println "I'm coming from the proc file and I know about ")
-  (println port))
+(defn -main [port]
+  (start-server (or (Integer. port) 5000)))
