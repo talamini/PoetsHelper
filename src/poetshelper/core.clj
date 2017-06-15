@@ -110,5 +110,10 @@
     (println "Starting server on port " port)
     (httpkit/run-server poetshelper-server {:port port})))
 
-(defn -main []
-  (start-server 5000))
+(defn -main [& [port]]
+  (let [port (Integer. (or port (env :port) 5000))]
+    (start-server port)))
+
+(defn -from-proc-file [$ [port]]
+  (println "I'm coming from the proc file and I know about ")
+  (println port))
