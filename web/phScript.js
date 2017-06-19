@@ -30,7 +30,7 @@ window.MY_SCOPE = $scope;
 	function getRhymes(word, callback) {
 
 		$http({method: 'GET', 
-			url: 'http://localhost:8008/rhymes/' + word,
+			url: externalAddresses.heroku + '/rhymes/' + word,
 			transformResponse: [function(data){return data;}]
 			}).
 			success(function(data, status, headers, config) {
@@ -58,7 +58,7 @@ window.MY_SCOPE = $scope;
 	function getSynonyms(word, callback) {
 
 		$http({method: 'GET', 
-			url: 'http://localhost:8008/synonyms/' + word,
+			url: externalAddresses.heroku + '/synonyms/' + word,
 			transformResponse: [function(data){return data;}]
 			}).
 			success(function(data, status, headers, config) {
