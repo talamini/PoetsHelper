@@ -94,7 +94,8 @@
         (-> (re-seq #"\/([a-zA-Z']+)"
                     (input :uri))
             (nth 1)
-            (nth 1))]
+            (nth 1)
+            (str/lower-case))]
 
     (when (contains? doable-functions which-function-to-do)
       (println "doing function: " which-function-to-do " on: " word)
