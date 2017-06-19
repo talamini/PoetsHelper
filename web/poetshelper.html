@@ -19,6 +19,8 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		
 		<link rel="stylesheet" href="css/styles.css">
 
 	</head>
@@ -36,13 +38,21 @@
 					<div class="col-md-3"></div>
                     <div class="col-md-6 text-center panel">
                         <h3>Put them in these text boxes:</h3>
-                        <input class="color-blue" type="text" ng-model="input.blueWord" ng-change="console.log('Changed')">
+                        <input class="color-blue" type="text" ng-model="input.blueWord">
                         <input class="color-red" type="text" ng-model="input.redWord">
                         <p>And I'll find synonyms of your words that rhyme with each other.</p>
                         <button ng-click="easyButtonClick()">Try it</button>
                     </div>
 					<div class="col-md-3"></div>
                 </div>
+
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 
 				<div class="row">
 					<div class="col-md-4"></div>
@@ -52,9 +62,9 @@
 								Looking up {{status.blueSynonymsCount}} / {{status.blueSynonymsTotal}} entries for {{input.blueWord}}
 							</div>
 						</div>
-						<div style="height: 20px;">
+						<div class="progress-bar-container">
 							<div>
-								<div ng-show="status.blueSynonymsTotal > 0" style="background-color: blue; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
+								<div ng-show="status.blueSynonymsTotal > 0" class="progress-bar" style="background-color: blue; width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
 							</div>
 						</div>
 					</div>
@@ -68,9 +78,9 @@
 								Looking up {{status.redSynonymsCount}} / {{status.redSynonymsTotal}} entries for {{input.redWord}}
 							</div>
 						</div>
-						<div style="height: 20px;">
+						<div class="progress-bar-container">
 							<div>
-								<div ng-show="status.redSynonymsTotal > 0" style="background-color: red; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
+								<div ng-show="status.redSynonymsTotal > 0" class="progress-bar" style="background-color: red; width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
 							</div>
 						</div>
 					</div>
@@ -83,8 +93,8 @@
 
 					<table style="text-align:center;margin:auto;width:50% !important;" class="table table-bordered table-striped text-center">
 						<tr>
-							<td style="color:blue;">{{input.blueWord}}</td>
-							<td style="color:red;">{{input.redWord}}</td>
+							<td class="color-blue">{{input.blueWord}}</td>
+							<td class="color-red">{{input.redWord}}</td>
 						</tr>
 						<tr ng-repeat="suggestion in blueSuggestions track by $index">
 							<td>
@@ -103,10 +113,10 @@
 						<h1 class="skinny">Confused?</h1>
 						<h3>Let's say you're writing a poem:</h3>
 						<p>In Xanadu did Kublai Khan</br>
-							A sacred pleasure-dome <span style="color:blue;">mandate</span></br>
+							A sacred pleasure-dome <span class="color-blue">mandate</span></br>
 							Where Alph, the sacred river, ran,</br>
 							Through caverns measureless to man,</br>
-							Down to a sunless <span style="color:red;">deep</span></p>
+							Down to a sunless <span class="color-red">deep</span></p>
 						<h3>Try putting in the words <span class="color-blue">mandate</span>
 						and <span class="color-red">deep</span>.</h3>
 						<p>See if there are any other words Coleridge could have picked!</p>
@@ -133,12 +143,12 @@
 			<div ng-if="advanced">
 				<div class="instructions">
 					<p>In Xanadu did Kublai Khan</br>
-					A sacred pleasure-dome <span style="color:blue;">mandate</span></br>
+					A sacred pleasure-dome <span class="color-blue">mandate</span></br>
 					Where Alph, the sacred river, ran,</br>
 					Through caverns measureless to man,</br>
-					Down to a sunless <span style="color:red;">-----</span></p>
+					Down to a sunless <span class="color-red">-----</span></p>
 				</div>
-				<input style="color:blue;" type="text" ng-model="inputWord">
+				<input class="color-blue" type="text" ng-model="inputWord">
 				<button ng-click="buttonClick()">click</button>
 
 				<div>
@@ -146,7 +156,7 @@
 						<table style="width:100%;">
 							<tr>
 							<td style="vertical-align:middle;width:25%;">
-								<div style="">
+								<div>
 									<div>{{suggestion.word}}</div>
 								</div>
 							</td>
