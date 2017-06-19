@@ -1,0 +1,103 @@
+@red: #ff0000;
+@blue: #0000ff;
+@lightgray: #d3d3d3;
+@gray: #808080;
+@white: #ffffff;
+@lilac: #a26ba2;
+@mint: #6ba26b;
+
+body {
+    font-family: 'Heebo', sans-serif;
+}
+
+p, h1, h3, button, input {
+    margin: 5px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: @gray;
+    animation-duration: 0.5s;
+    animation-name: darken;
+}
+
+input, textarea {
+    border-radius: 10px;
+    box-shadow: none;
+    border-style: solid;
+    border-color: @lightgray;
+    padding: 2px 1px 1px 5px;
+    border-width: 2px;
+    animation-duration: 0.5s;
+    animation-name: lighten;
+}
+
+button {
+    padding: 10px 11px 8px 10px;
+    border-width: 2px;
+    border-color: @lightgray;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: @white;
+    transition: border-color 0.5s ease-in-out;
+}
+
+button:hover {
+    border-color: @gray;
+}
+button:focus {
+    outline: 0;
+}
+button:active {
+    background-color: @lightgray;
+}
+
+@keyframes darken {
+    from {
+        border-color: @lightgray;
+    }
+    to {
+        border-color: @gray;
+    }
+}
+
+@keyframes lighten {
+    from {
+        border-color: @gray;
+    }
+    to {
+        border-color: @lightgray;
+    }
+}
+
+.color-red {
+    color: @red;
+}
+.color-blue {
+    color: @blue;
+}
+.color-lilac {
+    color: @lilac;
+}
+.color-mint {
+    color: @mint;
+}
+
+.panel {
+    border: 1px solid lightgray;
+    padding: 3px;
+    margin: 3px;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.tiny {
+    font-size: 10px;
+}
+.skinny {
+    font-weight: 100;
+    font-size: 40px;
+}
+.wide {
+    font-weight: 800;
+    font-size: 30px;
+}

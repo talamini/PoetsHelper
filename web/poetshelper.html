@@ -4,8 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     	<script type="text/javascript"
         	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
-		<script type="text/javascript" src="address.js"></script>
-    	<script type="text/javascript" src="phScript.js"></script>
+		<script type="text/javascript" src="js/address.js"></script>
+    	<script type="text/javascript" src="js/phScript.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Heebo:100,500,700,900" rel="stylesheet">
@@ -19,70 +19,68 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+		<link rel="stylesheet" href="css/styles.css">
+
 	</head>
-	<body style="font-family: 'Heebo', sans-serif;">
+	<body>
         <div class="jumbotron">
             <h2 class="text-center">Let's say you have two words,</h2>
-			<h2 class="text-center">and you want them to rhyme but they don't.</h2>
-			<h2 class="text-center">Use this.</h2>
+			<h2 class="text-center"><i>and you want them to rhyme but they don't.</i></h2>
+			<h2 class="text-center">Use this!</h2>
         </div>
 		<div class="container-fluid"
                 ng-controller="PHCtrl">
 
             <div ng-if="!advanced">
                 <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div style="border: 1px solid lightgray;padding: 3px;margin: 3px;box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);"
-                            class="col-md-6 col-lg-3 text-center">
-                        <p>For example:</p>
-						<p>In Xanadu did Kublai Khan</br>
-                            A sacred pleasure-dome <span style="color:blue;">mandate</span></br>
-                            Where Alph, the sacred river, ran,</br>
-                            Through caverns measureless to man,</br>
-                            Down to a sunless <span style="color:red;">deep</span></p>
+					<div class="col-md-3"></div>
+                    <div class="col-md-6 text-center panel">
+                        <h3>Put them in these text boxes:</h3>
+                        <input class="color-blue" type="text" ng-model="input.blueWord" ng-change="console.log('Changed')">
+                        <input class="color-red" type="text" ng-model="input.redWord">
+                        <p>And I'll find synonyms of your words that rhyme with each other.</p>
+                        <button ng-click="easyButtonClick()">Try it</button>
                     </div>
-                    <div style="border: 1px solid lightgray;padding: 3px;margin: 3px;box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);"
-                         class="col-md-6 col-lg-3 text-center">
-                        <p>Put them in here:</p>
-                        <input style="color:blue;" type="text" ng-model="input.blueWord" ng-change="console.log('Changed')">
-                        <input style="color:red;" type="text" ng-model="input.redWord">
-                        <p>And I will find 'synonyms' of those words that rhyme with each other!</p>
-                        <button ng-click="easyButtonClick()">Get Rhyming Synonyms!</button>
-                    </div>
+					<div class="col-md-3"></div>
                 </div>
 
 				<div class="row">
-					<div class="col-md-6 text-right">
-						<div ng-show="status.showSynonymsCount">
-							Looking up {{status.blueSynonymsCount}} / {{status.blueSynonymsTotal}} entries for {{input.blueWord}}
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div>
+							<div ng-show="status.showSynonymsCount">
+								Looking up {{status.blueSynonymsCount}} / {{status.blueSynonymsTotal}} entries for {{input.blueWord}}
+							</div>
+						</div>
+						<div style="height: 20px;">
+							<div>
+								<div ng-show="status.blueSynonymsTotal > 0" style="background-color: blue; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-3" style="height: 20px;">
-						<div style="margin-top: 5px;">
-							<div ng-show="status.blueSynonymsTotal > 0" style="background-color: blue; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
+					<div class="col-md-4"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div>
+							<div ng-show="status.showSynonymsCount">
+								Looking up {{status.redSynonymsCount}} / {{status.redSynonymsTotal}} entries for {{input.redWord}}
+							</div>
+						</div>
+						<div style="height: 20px;">
+							<div>
+								<div ng-show="status.redSynonymsTotal > 0" style="background-color: red; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-3"></div>
+					<div class="col-md-4"></div>
 				</div>
 
 				<div class="row">
-					<div class="col-md-6 text-right">
-						<div ng-show="status.showSynonymsCount">
-							Looking up {{status.redSynonymsCount}} / {{status.redSynonymsTotal}} entries for {{input.redWord}}
-						</div>
-					</div>
-					<div class="col-md-3" style="height: 20px;">
-						<div style="margin-top: 5px;">
-							<div ng-show="status.redSynonymsTotal > 0" style="background-color: red; height: 10px; border-style: solid; border-radius: 5px; border-width: 1px; width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
-						</div>
-					</div>
-					<div class="col-md-3"></div>
-				</div>
 
-				<div class="row">
+					<div class="text-center">{{status.message}}</div>
 
-					<div style="border: 1px solid lightgray;padding: 3px;margin: 3px;box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);"
-                         class="text-center">{{status.message}}</div>
 					<table style="text-align:center;margin:auto;width:50% !important;" class="table table-bordered table-striped text-center">
 						<tr>
 							<td style="color:blue;">{{input.blueWord}}</td>
@@ -97,6 +95,38 @@
 							</td>
 						</tr>
 					</table>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 text-center panel">
+						<h1 class="skinny">Confused?</h1>
+						<h3>Let's say you're writing a poem:</h3>
+						<p>In Xanadu did Kublai Khan</br>
+							A sacred pleasure-dome <span style="color:blue;">mandate</span></br>
+							Where Alph, the sacred river, ran,</br>
+							Through caverns measureless to man,</br>
+							Down to a sunless <span style="color:red;">deep</span></p>
+						<h3>Try putting in the words <span class="color-blue">mandate</span>
+						and <span class="color-red">deep</span>.</h3>
+						<p>See if there are any other words Coleridge could have picked!</p>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4 text-center panel">
+						<p class="tiny">
+							My stack for this project is<br>
+							<a href="https://clojure.org">Clojure</a> backend hosted by <a href="https://heroku.com">Heroku</a>,<br>
+							Making use of <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMUDict</a> (and a machine-readable thesaurus I forget the source of),<br>
+							<a href="https://angularjs.org">AngularJS</a> and <a href="lesscss.org">Less</a>,<br>
+							<a href="http://getbootstrap.com/">Bootstrap</a>, <a href="https://fonts.google.com/">Google Fonts</a> and <a href="http://fontawesome.io/examples/">Font Awesome</a><br>
+							Full code is on <a href="https://github.com/talamini/PoetsHelper">Github</a>
+						</p>
+					</div>
+					<div class="col-md-4"></div>
 				</div>
 
 			</div>

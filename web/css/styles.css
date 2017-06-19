@@ -1,0 +1,91 @@
+body {
+  font-family: 'Heebo', sans-serif;
+}
+p,
+h1,
+h3,
+button,
+input {
+  margin: 5px;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #808080;
+  animation-duration: 0.5s;
+  animation-name: darken;
+}
+input,
+textarea {
+  border-radius: 10px;
+  box-shadow: none;
+  border-style: solid;
+  border-color: #d3d3d3;
+  padding: 2px 1px 1px 5px;
+  border-width: 2px;
+  animation-duration: 0.5s;
+  animation-name: lighten;
+}
+button {
+  padding: 10px 11px 8px 10px;
+  border-width: 2px;
+  border-color: #d3d3d3;
+  border-radius: 10px;
+  border-style: solid;
+  background-color: #ffffff;
+  transition: border-color 0.5s ease-in-out;
+}
+button:hover {
+  border-color: #808080;
+}
+button:focus {
+  outline: 0;
+}
+button:active {
+  background-color: #d3d3d3;
+}
+@keyframes darken {
+  from {
+    border-color: #d3d3d3;
+  }
+  to {
+    border-color: #808080;
+  }
+}
+@keyframes lighten {
+  from {
+    border-color: #808080;
+  }
+  to {
+    border-color: #d3d3d3;
+  }
+}
+.color-red {
+  color: #ff0000;
+}
+.color-blue {
+  color: #0000ff;
+}
+.color-lilac {
+  color: #a26ba2;
+}
+.color-mint {
+  color: #6ba26b;
+}
+.panel {
+  border: 1px solid lightgray;
+  padding: 3px;
+  margin: 3px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.tiny {
+  font-size: 10px;
+}
+.skinny {
+  font-weight: 100;
+  font-size: 40px;
+}
+.wide {
+  font-weight: 800;
+  font-size: 30px;
+}
