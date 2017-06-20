@@ -1,6 +1,15 @@
 body {
   font-family: 'Heebo', sans-serif;
 }
+.fa {
+  margin: 5px;
+}
+.fa-exclamation-circle {
+  color: #ffa500;
+}
+.fa-check-circle {
+  color: #6ba26b;
+}
 p,
 h1,
 h3,
@@ -32,7 +41,7 @@ button {
   border-color: #d3d3d3;
   border-radius: 10px;
   border-style: solid;
-  background-color: #ffffff;
+  background: #fafafa;
   transition: border-color 0.5s ease-in-out;
 }
 button:hover {
@@ -42,7 +51,7 @@ button:focus {
   outline: 0;
 }
 button:active {
-  background-color: #d3d3d3;
+  background: #d3d3d3;
 }
 @keyframes darken {
   from {
@@ -72,11 +81,54 @@ button:active {
 .color-mint {
   color: #6ba26b;
 }
+.bg-red {
+  background: #ff0000;
+}
+.bg-blue {
+  background: #0000ff;
+}
+.red-gradient {
+  background: #ff0000;
+  background: -moz-linear-gradient(-45deg, #ff0000 0%, #ffa6a6 15%, #ff0000 25%, #f07878 50%, #ff0000 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #ff0000), color-stop(15%, #ffa6a6), color-stop(25%, #ff0000), color-stop(50%, #f07878), color-stop(100%, #ff0000));
+  background: -webkit-linear-gradient(-45deg, #ff0000 0%, #ffa6a6 15%, #ff0000 25%, #f07878 50%, #ff0000 100%);
+  background: -o-linear-gradient(-45deg, #ff0000 0%, #ffa6a6 15%, #ff0000 25%, #f07878 50%, #ff0000 100%);
+  background: -ms-linear-gradient(-45deg, #ff0000 0%, #ffa6a6 15%, #ff0000 25%, #f07878 50%, #ff0000 100%);
+  background: linear-gradient(135deg, #ff0000 0%, #ffa6a6 15%, #ff0000 25%, #f07878 50%, #ff0000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ff0000', GradientType=1);
+}
+.blue-gradient {
+  background: #0000ff;
+  background: -moz-linear-gradient(-45deg, #0000ff 0%, #d2d2fc 15%, #0000ff 25%, #9393fa 50%, #0000ff 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #0000ff), color-stop(15%, #d2d2fc), color-stop(25%, #0000ff), color-stop(50%, #9393fa), color-stop(100%, #0000ff));
+  background: -webkit-linear-gradient(-45deg, #0000ff 0%, #d2d2fc 15%, #0000ff 25%, #9393fa 50%, #0000ff 100%);
+  background: -o-linear-gradient(-45deg, #0000ff 0%, #d2d2fc 15%, #0000ff 25%, #9393fa 50%, #0000ff 100%);
+  background: -ms-linear-gradient(-45deg, #0000ff 0%, #d2d2fc 15%, #0000ff 25%, #9393fa 50%, #0000ff 100%);
+  background: linear-gradient(135deg, #0000ff 0%, #d2d2fc 15%, #0000ff 25%, #9393fa 50%, #0000ff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0000ff', endColorstr='#0000ff', GradientType=1);
+}
 .panel {
-  border: 1px solid lightgray;
+  border: 1px solid #d3d3d3;
   padding: 3px;
   margin: 3px;
   box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  background: #fdfdfd;
+}
+.progress-bar-container {
+  height: 20px;
+}
+.progress-bar-outline {
+  border-width: 2px;
+  border-style: solid;
+  height: 14px;
+  border-radius: 5px;
+  border-color: #d3d3d3;
+}
+.progress-bar {
+  height: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
 }
 .tiny {
   font-size: 10px;

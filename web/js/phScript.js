@@ -17,7 +17,9 @@ window.MY_SCOPE = $scope;
 	$scope.status.redSynonymsCount = 0;
 	$scope.status.blueSynonymsCount = 0;
 	$scope.status.showSynonymsCount = false;
+	$scope.status.showWaitingSpinner = false;
 	$scope.status.message = "";
+	$scope.status.messageFA = "";
 
 	$scope.bigRedList = [];
 	$scope.bigBlueList = [];
@@ -97,16 +99,20 @@ window.MY_SCOPE = $scope;
   	$scope.status.blueSynonymsTotal = 0;
   	$scope.status.redSynonymsCount = 0;
   	$scope.status.redSynonymsTotal = 0;
-  	$scope.status.showSynonymsCount = true;
+  	$scope.status.showWaitingSpinner = true;
   	$scope.status.message = "";
+  	$scope.status.messageFA = "";
   	$scope.bigBlueList.length = 0;
   	$scope.bigRedList.length = 0;
 
     getSynonyms($scope.input.blueWord, function(synonyms) {
         console.log("just got " + synonyms.length + " synonyms to " + $scope.input.blueWord);
+        $scope.status.showSynonymsCount = true;
+        $scope.status.showWaitingSpinner = false;
         $scope.status.blueSynonymsTotal = synonyms.length;
         if (synonyms.length == 0) {
             $scope.status.message = "I couldn't find " + $scope.input.blueWord + " in my thesaurus";
+            $scope.status.messageFA = "fa fa-exclamation-circle fa-lg";
         }
         synonyms.map(function(v, i){
 
@@ -131,6 +137,7 @@ window.MY_SCOPE = $scope;
         $scope.status.redSynonymsTotal = synonyms.length;
         if (synonyms.length == 0) {
             $scope.status.message = "I couldn't find " + $scope.input.redWord + " in my thesaurus";
+            $scope.status.messageFA = "fa fa-exclamation-circle fa-lg";
         }
         synonyms.map(function(v, i){
 
@@ -196,11 +203,12 @@ console.info("Both lists are complete");
     })
 
     if ($scope.blueSuggestions.length > 0) {
-      $scope.status.message = "Here are " + $scope.blueSuggestions.length + " rhyming synonyms:";
+      $scope.status.message = "Here are " + $scope.blueSuggestions.length + " rhyming synonyms";
+      $scope.status.messageFA = "fa fa-check-circle fa-lg";
     } else {
-      $scope.status.message = "Sorry, couldn't find any intersections.";
+      $scope.status.message = "Sorry, I couldn't find any intersections.";
+      $scope.status.messageFA = "fa fa-exclamation-circle fa-lg";
     }
-
   }
 
   $scope.buttonClick = function() {

@@ -20,7 +20,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-		
+
 		<link rel="stylesheet" href="css/styles.css">
 
 	</head>
@@ -46,12 +46,15 @@
 					<div class="col-md-3"></div>
                 </div>
 
-				<div class="row">
-					<div class="col-md-5"></div>
-					<div class="col-md-2">
-
+				<div ng-show="status.showWaitingSpinner">
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4 text-center">
+							<i class="fa fa-spinner fa-pulse fa-lg" aria-hidden="true"></i>
+							Waiting for a response from Heroku...
+						</div>
+						<div class="col-md-4"></div>
 					</div>
-					<div class="col-md-5"></div>
 				</div>
 
 				<div class="row">
@@ -63,8 +66,8 @@
 							</div>
 						</div>
 						<div class="progress-bar-container">
-							<div>
-								<div ng-show="status.blueSynonymsTotal > 0" class="progress-bar" style="background-color: blue; width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
+							<div ng-show="status.blueSynonymsTotal > 0" class="progress-bar-outline">
+								<div class="progress-bar bg-blue" style="width: {{status.blueSynonymsCount / status.blueSynonymsTotal * 100}}%;"></div>
 							</div>
 						</div>
 					</div>
@@ -79,8 +82,8 @@
 							</div>
 						</div>
 						<div class="progress-bar-container">
-							<div>
-								<div ng-show="status.redSynonymsTotal > 0" class="progress-bar" style="background-color: red; width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
+							<div ng-show="status.redSynonymsTotal > 0" class="progress-bar-outline">
+								<div class="progress-bar bg-red" style="width: {{status.redSynonymsCount / status.redSynonymsTotal * 100}}%;"></div>
 							</div>
 						</div>
 					</div>
@@ -89,7 +92,11 @@
 
 				<div class="row">
 
-					<div class="text-center">{{status.message}}</div>
+					<div class="text-center">
+						<i ng-class="status.messageFA" aria-hidden="true"></i>
+						{{status.message}}
+						<i ng-class="status.messageFA" aria-hidden="true"></i>
+					</div>
 
 					<table style="text-align:center;margin:auto;width:50% !important;" class="table table-bordered table-striped text-center">
 						<tr>
@@ -133,7 +140,7 @@
 							Making use of <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMUDict</a> (and a machine-readable thesaurus I forget the source of),<br>
 							<a href="https://angularjs.org">AngularJS</a> and <a href="lesscss.org">Less</a>,<br>
 							<a href="http://getbootstrap.com/">Bootstrap</a>, <a href="https://fonts.google.com/">Google Fonts</a> and <a href="http://fontawesome.io/examples/">Font Awesome</a><br>
-							Full code is on <a href="https://github.com/talamini/PoetsHelper">Github</a>
+							Code is on <a href="https://github.com/talamini/PoetsHelper">Github</a>
 						</p>
 					</div>
 					<div class="col-md-4"></div>
