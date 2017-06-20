@@ -106,6 +106,7 @@ window.MY_SCOPE = $scope;
   	$scope.bigRedList.length = 0;
 
     getSynonyms($scope.input.blueWord, function(synonyms) {
+        $scope.input.blueWord = $scope.input.blueWord.toLowerCase();
         console.log("just got " + synonyms.length + " synonyms to " + $scope.input.blueWord);
         $scope.status.showSynonymsCount = true;
         $scope.status.showWaitingSpinner = false;
@@ -133,6 +134,7 @@ window.MY_SCOPE = $scope;
     });
 
     getSynonyms($scope.input.redWord, function(synonyms) {
+        $scope.input.redWord = $scope.input.redWord.toLowerCase();
         console.log("just got " + synonyms.length + " synonyms to " + $scope.input.redWord);
         $scope.status.redSynonymsTotal = synonyms.length;
         if (synonyms.length == 0) {
